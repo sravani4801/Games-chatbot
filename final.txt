@@ -1,0 +1,140 @@
+/** This is a sample code for your bot**/
+function MessageHandler(context, event) {
+    if(event.message == "Get Started"){
+        context.sendResponse("Hello sravani kakollu, Welcome!")
+    }
+    if(event.message == "hii" || event.message == "Hii"){
+        context.sendResponse("Hello!");
+    }
+    if(event.message == "How can you help me"){
+        //context.sendResponse("Hey this is game bot you can play any games you like");
+         var question = {
+                   "type": "poll",
+                     "question": "Hey this is game chatbot would you like to play the games? 🎮",
+                     "msgid": "poll_212"
+        }; 
+    context.sendResponse(JSON.stringify(question));     
+    return;   
+        
+    }
+    if(event.message == "Yes"){
+        var a ={
+            
+          "type": "survey",
+          "question": " How would you like to play a game? 🎮",
+          "msgid": "3er45",
+          "options": [
+          "play without login 🎮",
+          "login/signup",
+          ]
+        };
+    context.sendResponse(JSON.stringify(a));     
+    return;  
+    }
+    if(event.message == "play without login 🎮"){
+        //context.sendPhoto("https://rec-end.elnuevodia.com/images/tn/0/196/1199/793/900/447/2020/05/22/jumpyjumpy.jpg")
+        context.sendResponse("  JUMPY JUMPY \n\n What is “Jumpy Jumpy” about? The challenge of the game is a ball that slides down a tube. The participant must overcome obstacles in a certain time. The more obstacles you overcome, this will allow you to advance to new levels with greater degree of difficulty. \n\n CLICK HERE TO PLAY:\n\n https://fb.gg/play/jumpy_jumpy");
+    }
+    if(event.message == "Good game"){
+       context.simplehttp.makeGet("https://api.susi.ai/cms/getSkillList.json?group=Knowledge", {}, function (context, event){
+          var res = JSON.parse(event.getresp);
+          context.sendResponse(res.feedback_count);
+       });
+    }
+    if(event.message == "Nice game"){
+        var ans = {
+                   "type": "poll",
+                     "question": "Would you like to play another game? 🎮",
+                     "msgid": "poll_212"
+        }; 
+       context.sendResponse(JSON.stringify(ans));     
+       return; 
+    }
+    if(event.message == "Yes" || event.message == "Y"){
+        var b ={
+            
+          "type": "survey",
+          "question": "would you like to play a game?",
+          "msgid": "3er45",
+          "options": [
+          "play 🎮",
+          "login/signup",
+          ]
+        };
+    context.sendResponse(JSON.stringify(b));     
+    return;  
+    }
+    if(event.message == "play 🎮"){
+        context.sendResponse("  LUDO KING \n\n Ludo King, is an Indian free-to-play mobile game application developed by Indian studio Gametion Technologies Pvt Ltd. Gametion is owned by Vikash Jaiswal. It is developed on the Unity game engine and is available on Android, iOS, Kindle, and Windows Phone platforms. \n\n CLICK HERE TO PLAY \n\n https://fb.gg/play/ludo-king-instant")
+    }
+    if(event.message == "Good game"){
+        context.sendResponse("ok Thank you! there more games available in this chatbot you can play continuously 👍");
+    }
+    if(event.message == "I want to play puzzle games"){
+        context.sendResponse("  BRAIN PUZZLE \n\n A brain teaser is a form of puzzle that requires thought to solve. It often requires thinking in unconventional ways with given constraints in mind; sometimes it also involves lateral thinking. Logic puzzles and riddles are specific types of brain teasers. \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/brain_puzzle_fb_ig")
+    }
+    if(event.message == "I want to play math related games"){
+        context.sendResponse("  MATHS GURU \n\n About Math Guru - Win Real Money! Includes tournaments and head-to-head competitions with real cash prizes (where available). Overview: 60 seconds to solve as many Math problems as you can. ... Games can be played Head to Head with other players or in large, multiplayer tournaments.\n\n CLICK HERE TO PLAY: \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/maths-guru")
+    }
+    if(event.message == "I want to play crazy games"){
+        context.sendResponse(" CONNECT THE DOTS \n\n  Dot Connect is just like the classic game connect the dots but without numbers to guide you. Starting from the initial dot, connect all dots on the board. Connections are made vertically or horizontally, and without overlap. \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/connectdots_ig")
+    }
+    if(event.message == "Shooting games"){
+        context.sendResponse(" BUBBLE SHOOTER \n\n Bubble Shooter is a clone of the Puzzle Bobble arcade game that was released by Taito in 1994. The Bubble Shooter game and IP is owned by Ilyon Dynamics, after it was acquired from Absolutist who released the original game in 2002. It was ported to iOS in 2010. \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/bubbleshooterapp")
+    }
+    if(event.message == "Toe games"){
+        context.sendResponse(" TIC TAC TOE \n\n Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or Xs and Os is a paper-and-pencil game for two players, X and O, who take turns marking the spaces in a 3×3 grid. ... The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/gameplayings");
+    }
+    if(event.message == "I want to play music games"){
+        context.sendResponse("PIANO GAME \n\n Piano Tiles is a game where the player's objective is to tap on the black tiles as they appear from the top of the screen while avoiding the white. When each black tile is tapped, it will emit a piano sound. In quick succession, forms famous compositions such as Für Elise and Ode to Joy. \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/piano_music_master")
+    }
+    if(event.message == "Running games"){
+        context.sendResponse("SUBWAY SURFERS \n\n Subway Surfers is an endless runner mobile game co-developed by Kiloo and SYBO Games, private companies based in Denmark. It is available on Android, iOS, Kindle, and Windows Phone platforms and uses the Unity game engine.\n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/boaaatrush")
+    }
+    if(event.message == "Temple run"){
+        context.sendResponse("TEMPLE RUN \n\n Temple Run is a 3D endless running video game developed and published by Imangi Studios. The player controls an explorer who has obtained an ancient relic and is running from evil demon monkeys who are chasing him \n\n CLICK HERE TO PLAY: \n\n https://fb.gg/play/graavitysoccer")
+    }
+    if(event.message == "Thank you"){
+        //context.sendResponse("Welcome! If you are in tired come to this chatbot and play any games you like :)")
+        context.sendResponse("please spend few minutes to take a feedback of chatbot ⏱️")
+        
+    }
+    if(event.message == "Ok"){
+        var d ={
+            
+          "type": "survey",
+          "question": "How was this chatbot experience?🔥",
+          "msgid": "3er45",
+          "options": [
+          "View Website",
+          {
+            "type": "url",
+            "title" : "Take survey 👍",
+            "url": "https://docs.google.com/forms/d/1FyqTfsvBITaTRZuj6BvREtenpK_MzbeFNgjERisoyDo/edit"
+          }
+          ]
+        };
+    context.sendResponse(JSON.stringify(d));
+    return;
+    }
+    else {
+        context.sendResponse("Thank you ! If you are in tired come to this chatbot and play any games 🎮 you like :)")
+    }
+}
+    
+/** Functions declared below are required **/
+function EventHandler(context, event) {
+    
+}
+
+function HttpResponseHandler(context, event) {
+    
+}
+
+function DbGetHandler(context, event) {
+    
+}
+
+function DbPutHandler(context, event) {
+
+}
